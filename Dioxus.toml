@@ -1,0 +1,34 @@
+[application]
+name = "example"
+
+[bundle]
+identifier = "com.anror"
+publisher = "majh"
+icon = ["assets/icon.png"]
+
+[bundle.windows]
+allow_downgrades = false         # Looks interesting ...
+icon_path = "assets/favicon.ico" # Again, copied from Tauri
+tsp = true                       # What is this?!
+[bundle.windows.webview_install_mode.EmbedBootstrapper]
+silent = true
+
+[web.app]
+
+# HTML title tag content
+title = "dioxus-desk"
+
+# include `assets` in web platform
+[web.resource]
+
+# Additional CSS style files
+style = []
+
+# Additional JavaScript files
+script = []
+
+[web.resource.dev]
+
+# Javascript code file
+# serve: [dev-server] only
+script = []
