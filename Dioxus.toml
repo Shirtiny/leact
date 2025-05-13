@@ -1,9 +1,9 @@
 [application]
-name = "example"
+name = "leact"
 
 [bundle]
-identifier = "com.anror"
-publisher = "majh"
+identifier = "com.anror.leact"
+publisher = "shirtiny"
 icon = ["assets/icon.png"]
 
 [bundle.windows]
@@ -16,7 +16,7 @@ silent = true
 [web.app]
 
 # HTML title tag content
-title = "dioxus-desk"
+title = "leact"
 
 # include `assets` in web platform
 [web.resource]
