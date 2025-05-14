@@ -7,7 +7,7 @@ init:
 	pnpm i
 	npx tailwindcss -i ./input.css -o ./assets/tailwind.css
 
-start:
+start: init
 	@echo "Starting... $(p)"
 	dx serve --platform $(p)
 
