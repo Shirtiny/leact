@@ -4,7 +4,9 @@
 // need dioxus
 use dioxus::prelude::*;
 
-use components::Hero;
+// use components::Hero;
+// use components::Welcome;
+
 use views::{Blog, Home, Navbar};
 
 /// Define a components module that contains all shared components for our app.

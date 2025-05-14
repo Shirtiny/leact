@@ -1,0 +1,8 @@
+{
+  "files.autoSave": "off",
+  "editor.formatOnSave": true,
+  "tailwindCSS.includeLanguages": {
+    "rust": "html"
+  },
+  "tailwindCSS.experimental.classRegex": ["class: \"(.*)\""]
+}

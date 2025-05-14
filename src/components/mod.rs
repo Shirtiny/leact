@@ -3,7 +3,8 @@
 //! component  to be used in our app.
 
 mod hero;
-mod welcome;
-
 pub use hero::Hero;
-pub use welcome::Welcome;
+
+mod wel;
+pub use wel::Wel;
+

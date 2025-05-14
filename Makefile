@@ -1,12 +1,20 @@
-.DEFAULT_GOAL := build
+.DEFAULT_GOAL := init
+
+p ?= web
 
 init:
-	@echo "Initialising the project"
-	
+	@echo "Initializing the project"
+	pnpm i
+	npx tailwindcss -i ./input.css -o ./assets/tailwind.css
+
 start:
-	@echo "Starting..."
-	dx serve
+	@echo "Starting... $(p)"
+	dx serve --platform $(p)
+
+.PHONY: web desktop mobile
+web desktop mobile:
+	@$(MAKE) start p=$@
 
 bundle:
-	@echo "👩‍🏭 Building..."
-	dx bundle --platform desktop --release --features bundle
+	@echo "Building...$(p)"
+	dx bundle --platform $(p) --release --features bundle

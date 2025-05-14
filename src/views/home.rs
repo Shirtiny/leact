@@ -1,11 +1,11 @@
-use crate::components::Welcome;
+use crate::components::Wel;
 use dioxus::prelude::*;
 
 /// The Home page component that will be rendered when the current route is `[Route::Home]`
 #[component]
 pub fn Home() -> Element {
     rsx! {
-        Welcome {}
+        Wel {}
 
     }
 }

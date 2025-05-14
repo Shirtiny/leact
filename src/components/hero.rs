@@ -20,6 +20,7 @@ pub fn Hero() -> Element {
                 a { href: "https://marketplace.visualstudio.com/items?itemName=DioxusLabs.dioxus", "💫 VSCode Extension" }
                 a { href: "https://discord.gg/XgGxMSkvUM", "👋 Community Discord" }
             }
+
         }
     }
 }
