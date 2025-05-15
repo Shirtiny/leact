@@ -4,5 +4,6 @@
   "tailwindCSS.includeLanguages": {
     "rust": "html"
   },
-  "tailwindCSS.experimental.classRegex": ["class: \"(.*)\""]
+  "tailwindCSS.experimental.classRegex": ["class: \"(.*)\""],
+  "cSpell.words": ["stylesheet"]
 }

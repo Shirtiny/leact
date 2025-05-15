@@ -1,6 +1,6 @@
 # Development
 
-Your new jumpstart project includes basic organization with an organized `assets` folder and a `components` folder. 
+Your new jumpstart project includes basic organization with an organized `assets` folder and a `components` folder.
 If you chose to develop with the router feature, you will also have a `views` folder.
 
 ```
@@ -19,6 +19,7 @@ project/
 ```
 
 ### Tailwind
+
 1. Install npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 2. Install the Tailwind CSS CLI: https://tailwindcss.com/docs/installation
 3. Run the following command in the root of the project to start the Tailwind CSS compiler:
@@ -36,14 +37,23 @@ dx serve
 ```
 
 To run for a different platform, use the `--platform platform` flag. E.g.
+
 ```bash
 dx serve --platform desktop
 ```
 
 bundle
+
 ```bash
 
 dx bundle --platform desktop --release --features bundle
 
 ```
 
+debug
+
+for web install chrome extension and open devtools sources panel, find your sources files.
+
+[C/C++ DevTools Support (DWARF)](https://chromewebstore.google.com/detail/cc++-devtools-support-dwa/pdcpmagijalfljmkmjngeonclgbbannb)
+
+issue: [Dioxus Debugging Support](https://github.com/DioxusLabs/dioxus/issues/3796#issuecomment-2859897531)
