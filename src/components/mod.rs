@@ -3,4 +3,8 @@
 //! component  to be used in our app.
 
 mod hero;
+mod canvas;
+
+
 pub use hero::Hero;
+pub use canvas::Canvas;

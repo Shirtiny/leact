@@ -16,7 +16,7 @@ silent = true
 [web.app]
 
 # HTML title tag content
-title = "leact"
+title = "Leact"
 
 # include `assets` in web platform
 [web.resource]

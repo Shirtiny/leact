@@ -1,0 +1,211 @@
+/*! modern-normalize v3.0.1 | MIT License | https://github.com/sindresorhus/modern-normalize */
+
+/*
+文档
+========
+*/
+
+/**
+使用更好的盒子模型（有观点）。
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+1. 改善所有浏览器中默认字体的一致性。 (https://github.com/sindresorhus/modern-normalize/issues/3)
+2. 修正所有浏览器中的行高。
+3. 防止iOS中方向变化后字体大小的调整。
+4. 使用更可读的制表符大小（有观点）。
+*/
+
+html {
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji"; /* 1 */
+  line-height: 1.15; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 3 */
+  tab-size: 4; /* 4 */
+}
+
+/*
+部分
+========
+*/
+
+/**
+在所有浏览器中移除边距。
+*/
+
+body {
+  margin: 0;
+}
+
+/*
+文本级语义
+====================
+*/
+
+/**
+在Chrome和Safari中添加正确的字体粗细。
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+1. 改善所有浏览器中默认字体的一致性。 (https://github.com/sindresorhus/modern-normalize/issues/3)
+2. 修正所有浏览器中的奇怪“em”字体大小。
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo,
+    monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+在所有浏览器中添加正确的字体大小。
+*/
+
+small {
+  font-size: 80%;
+}
+
+/**
+防止“sub”和“sup”元素在所有浏览器中影响行高。
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+表格数据
+============
+*/
+
+/**
+修正Chrome和Safari中表格边框颜色的继承。 (https://issues.chromium.org/issues/40615503, https://bugs.webkit.org/show_bug.cgi?id=195016)
+*/
+
+table {
+  border-color: currentcolor;
+}
+
+/*
+表单
+=====
+*/
+
+/**
+1. 在所有浏览器中更改字体样式。
+2. 在Firefox和Safari中移除边距。
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+修正iOS和Safari中无法样式化可点击类型的问题。
+*/
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
+移除填充，以便开发人员在所有浏览器中不会在“fieldset”元素中遇到问题。
+*/
+
+legend {
+  padding: 0;
+}
+
+/**
+在Chrome和Firefox中添加正确的垂直对齐。
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+修正Safari中增减按钮的光标样式。
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+1. 修正Chrome和Safari中的奇怪外观。
+2. 修正Safari中的轮廓样式。
+*/
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+移除macOS中Chrome和Safari的内边距。
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+1. 修正iOS和Safari中无法样式化可点击类型的问题。
+2. 在Safari中将字体属性更改为“inherit”。
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/*
+交互
+===========
+*/
+
+/*
+在Chrome和Safari中添加正确的显示。
+*/
+
+summary {
+  display: list-item;
+}

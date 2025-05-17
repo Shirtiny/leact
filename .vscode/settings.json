@@ -1,9 +1,9 @@
 {
-  "files.autoSave": "off",
+  "files.autoSave": "onFocusChange",
   "editor.formatOnSave": true,
   "tailwindCSS.includeLanguages": {
     "rust": "html"
   },
   "tailwindCSS.experimental.classRegex": ["class: \"(.*)\""],
-  "cSpell.words": ["stylesheet"]
+  "cSpell.words": ["langid", "onmounted", "stylesheet"]
 }
