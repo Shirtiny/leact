@@ -4,13 +4,18 @@ p ?= web
 
 init:
 	@echo "Initializing the project"
+	cargo install cargo-binstall
+	cargo binstall dioxus-cli # brew install openssl@3
 	pnpm i
 	npx tailwindcss -i ./input.css -o ./assets/tailwind.css
 
+watch:
+	@echo "Watching... $(p)"
+	npx tailwindcss -i ./input.css -o ./assets/tailwind.css --watch	
+
 start:
 	@echo "Starting... $(p)"
-	dx serve --platform $(p) &
-	npx tailwindcss -i ./input.css -o ./assets/tailwind.css --watch
+	dx serve --platform $(p)
 
 .PHONY: web desktop mobile
 web desktop mobile:

@@ -4,7 +4,9 @@
 
 mod hero;
 mod canvas;
+mod language;
 
 
 pub use hero::Hero;
 pub use canvas::Canvas;
+pub use language::Language;

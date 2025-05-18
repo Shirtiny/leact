@@ -1,9 +1,8 @@
+use crate::components::Language;
 use crate::Route;
 use dioxus::{logger::tracing, prelude::*};
 use dioxus_free_icons::icons::hi_outline_icons::HiBell;
-use dioxus_free_icons::icons::hi_solid_icons::{HiChevronDown, HiGlobeAlt};
 use dioxus_free_icons::Icon;
-use dioxus_i18n::{prelude::*, unic_langid::langid};
 
 const NAVBAR_CSS: Asset = asset!("/assets/styling/views/navbar.scss");
 
@@ -14,20 +13,7 @@ const NAVBAR_CSS: Asset = asset!("/assets/styling/views/navbar.scss");
 /// routes will be rendered under the outlet inside this component
 #[component]
 pub fn Navbar() -> Element {
-    let mut i18n = i18n();
 
-    let change_to_english = move |event: Event<MouseData>| {
-        tracing::info!("Clicked! Event: {event:?}\n");
-        i18n.set_language(langid!("en"));
-    };
-    let change_to_chinese = move |_| {
-        i18n.set_language(langid!("cn"));
-    };
-
-    let currentLanguage = i18n.language();
-
-    // 打印currentLanguage
-    tracing::debug!("currentLanguage: {}", currentLanguage);
 
     rsx! {
         document::Link { rel: "stylesheet", href: NAVBAR_CSS }
@@ -76,30 +62,7 @@ pub fn Navbar() -> Element {
                         }
                     }
                 }
-
-
-
-                div { class: "ui-dropdown ui-dropdown-end",
-                    div {
-                        tabindex: "0",
-                        role: "button",
-                        class: "ui-btn ui-btn-ghost px-1.5  menu-dropdown-toggle",
-                        Icon { icon: HiGlobeAlt }
-                        Icon { icon: HiChevronDown }
-                    }
-                    ul {
-                        tabindex: "0",
-                        class: "ui-dropdown-content ui-menu  bg-base-100 rounded-box z-1 shadow-sm",
-                        ul { class: "ui-menu p-0 w-full",
-                            li { onclick: change_to_english,
-                                a { "English" }
-                            }
-                            li { onclick: change_to_chinese,
-                                a { class: "ui-menu-active", "中 文" }
-                            }
-                        }
-                    }
-                }
+                Language {}
             }
         }
 

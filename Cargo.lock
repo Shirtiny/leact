@@ -392,6 +392,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "clsx"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3ff38296f8950787939e66efc249283b2b0dbd221fccc0b44de0509db54c5fdb"
+
+[[package]]
 name = "cocoa"
 version = "0.25.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2472,6 +2478,7 @@ checksum = "bbd2bcb4c963f2ddae06a2efc7e9f3591312473c50c6685e1f298068316e66fe"
 name = "leact"
 version = "0.1.0"
 dependencies = [
+ "clsx",
  "dioxus",
  "dioxus-free-icons",
  "dioxus-i18n",

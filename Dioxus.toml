@@ -4,11 +4,19 @@ name = "leact"
 [bundle]
 identifier = "com.anror.leact"
 publisher = "shirtiny"
-icon = ["assets/icon.png"]
+icon = [
+   "icons/icon.png",
+   "icons/icon.icns",
+   "icons/icon.ico"
+]
+category = "Utility"
+copyright = "Copyright 2025 Anror"
+short_description = "A utility application for generate subs."
+long_description = "This application provides various utility functions..."
 
 [bundle.windows]
 allow_downgrades = false         # Looks interesting ...
-icon_path = "assets/favicon.ico" # Again, copied from Tauri
+icon_path = "icons/icon.ico" # Again, copied from Tauri
 tsp = true                       # What is this?!
 [bundle.windows.webview_install_mode.EmbedBootstrapper]
 silent = true
@@ -17,6 +25,10 @@ silent = true
 
 # HTML title tag content
 title = "Leact"
+
+[web.wasm_opt]
+level = "4"
+debug = false
 
 # include `assets` in web platform
 [web.resource]
