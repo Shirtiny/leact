@@ -27,7 +27,7 @@ pub fn Language() -> Element {
         },
     ];
 
-    let mut select_language = move |lang: LanguageItem| {
+    let mut select_language = move |lang: &LanguageItem| {
         tracing::info!("Clicked! Event: {lang:?}\n",);
         let lang_id = lang.value.parse().unwrap(); // 使用 parse 将字符串转为 LanguageIdentifier
         i18n.set_language(lang_id);
@@ -60,14 +60,12 @@ pub fn Language() -> Element {
                             .map(|lang| {
                                 let active = lang.value == currentLanguage.to_string();
                                 rsx! {
-                                    li { onclick: move |_| select_language(lang.clone()),
+                                    li { onclick: move |_| select_language(&lang),
                                         a { class: clsx!((active, "ui-menu-active")), "{lang.label}" }
                                     }
                                 }
                             })
                     }
-                
-
                 }
             }
         }
