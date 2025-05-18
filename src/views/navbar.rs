@@ -5,6 +5,7 @@ use dioxus_free_icons::icons::hi_outline_icons::HiBell;
 use dioxus_free_icons::Icon;
 
 const NAVBAR_CSS: Asset = asset!("/assets/styling/views/navbar.scss");
+const AVATAR_IMG: Asset = asset!("/assets/ren_dislikes_sweets.png");
 
 /// The Navbar component that will be rendered on all pages of our app since every page is under the layout.
 ///
@@ -40,7 +41,7 @@ pub fn Navbar() -> Element {
                         class: "ui-btn ui-btn-ghost ui-btn-circle ui-avatar",
                         div { class: "w-10 rounded-full",
                             img {
-                                src: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
+                                src: AVATAR_IMG,
                                 alt: "Tailwind CSS Navbar component",
                             }
                         }
