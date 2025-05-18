@@ -4,10 +4,11 @@ use dioxus::prelude::*;
 use dioxus_free_icons::icons::hi_solid_icons::{HiChevronDown, HiGlobeAlt};
 use dioxus_free_icons::Icon;
 use dioxus_i18n::prelude::*;
+use dioxus_i18n::unic_langid::{langid, LanguageIdentifier};
 
 #[derive(Debug, PartialEq, Clone)] // 使结构体可以打印并且支持比较
 struct LanguageItem {
-    value: String,
+    value: LanguageIdentifier,
     label: String,
 }
 
@@ -15,26 +16,27 @@ struct LanguageItem {
 pub fn Language() -> Element {
     let mut i18n = i18n();
     let mut open = use_signal(|| false);
+    
+    let currentLanguage = i18n.language();
 
     let languages = vec![
         LanguageItem {
-            value: "en".to_string(),
+            value: langid!("en"),
             label: "English".to_string(),
         },
         LanguageItem {
-            value: "cn".to_string(),
+            value:  langid!("cn"),
             label: "中 文".to_string(),
         },
     ];
 
     let mut select_language = move |lang: &LanguageItem| {
-        tracing::info!("Clicked! Event: {lang:?}\n",);
-        let lang_id = lang.value.parse().unwrap(); // 使用 parse 将字符串转为 LanguageIdentifier
-        i18n.set_language(lang_id);
+        tracing::debug!("Clicked! Event: {lang:?}\n",);
+        i18n.set_language(lang.value.clone());
         open.set(false);
     };
 
-    let currentLanguage = i18n.language();
+
 
     // 打印currentLanguage
     tracing::debug!("currentLanguage: {}, {}", currentLanguage, open,);
@@ -58,9 +60,14 @@ pub fn Language() -> Element {
                             .iter()
                             .cloned()
                             .map(|lang| {
-                                let active = lang.value == currentLanguage.to_string();
+                                let active = lang.value == currentLanguage;
                                 rsx! {
-                                    li { onclick: move |_| select_language(&lang),
+                                    li {
+                                        onclick: move |_| {
+                                            if !active {
+                                                select_language(&lang)
+                                            }
+                                        },
                                         a { class: clsx!((active, "ui-menu-active")), "{lang.label}" }
                                     }
                                 }
