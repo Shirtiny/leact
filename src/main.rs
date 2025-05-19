@@ -56,6 +56,9 @@ fn main() {
     dioxus::launch(App);
 }
 
+// Globals are created the first time you access them with the closure you pass to Global::new
+static THEME: GlobalSignal<String> = Global::new(|| "cupcake".into());
+
 /// App is the main component of our app. Components are the building blocks of dioxus apps. Each component is a function
 /// that takes some props and returns an Element. In this case, App takes no props because it is the root of our app.
 ///
@@ -80,7 +83,7 @@ fn App() -> Element {
         document::Link { rel: "stylesheet", href: MAIN_CSS }
 
 
-        div { id: "app", "data-theme": "cupcake",
+        div { id: "app", "data-theme": "{THEME}",
 
             // The router component renders the route enum we defined above. It will handle synchronization of the URL and render
             // the layouts and components for the active route.

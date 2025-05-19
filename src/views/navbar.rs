@@ -1,4 +1,4 @@
-use crate::components::Language;
+use crate::components::{Language, Theme};
 use crate::Route;
 use dioxus::{logger::tracing, prelude::*};
 use dioxus_free_icons::icons::hi_outline_icons::HiBell;
@@ -64,6 +64,7 @@ pub fn Navbar() -> Element {
                     }
                 }
                 Language {}
+                Theme {}
             }
         }
 

@@ -42,7 +42,7 @@ pub fn Language() -> Element {
     tracing::debug!("currentLanguage: {}, {}", currentLanguage, open,);
 
     rsx!(
-        div { class: clsx!("ui-dropdown", "ui-dropdown-end"),
+        div { class: clsx!("ui-dropdown", "ui-dropdown-center"),
             div {
                 tabindex: "0",
                 role: "button",
