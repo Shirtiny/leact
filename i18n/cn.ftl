@@ -3,6 +3,6 @@ upload = 上传
 edit_subtitles = 编辑字幕
 export = 导出
 welcome_to = 欢迎来到
-welcome_description = Leact追求简单易用的操作流程，您可以点击下方上传视频或音频，然后我会协助您完成字幕编辑，最后导出字幕文件。
+welcome_description = Leact致力于为您带来简单、高效的字幕制作体验。点击下方上传音视频，帮您快速生成、校准、编辑和导出字幕！
 
 hello = 你好, { $name }!

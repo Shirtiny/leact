@@ -15,7 +15,7 @@ pub fn Welcome() -> Element {
             div { class: "flex flex-col items-center justify-center",
                 h1 { class: "text-3xl",
                     {t!("welcome_to")}
-                    span { class: "font-light ", "Leact" }
+                    span { class: "font-light p-2", "Leact" }
                 }
                 p { class: "py-6", {t!("welcome_description")} }
             }
