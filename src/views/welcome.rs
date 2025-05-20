@@ -12,7 +12,12 @@ pub fn Welcome() -> Element {
         main { class: "page-welcome @container",
             // video { src: asset!("/assets/eva-redit.mp4"), controls: true }
 
-            div {
+            div { class: "flex flex-col items-center justify-center",
+                h1 { class: "text-3xl",
+                    {t!("welcome_to")}
+                    span { class: "font-light ", "Leact" }
+                }
+                p { class: "py-6", {t!("welcome_description")} }
             }
             ul { class: "ui-steps ui-steps-vertical @sm:ui-steps-horizontal",
                 li { class: "ui-step ui-step-primary", {t!("upload")} }
