@@ -3,21 +3,18 @@ use dioxus::logger::tracing;
 use dioxus::prelude::*;
 use dioxus_free_icons::icons::hi_solid_icons::{HiChevronDown, HiGlobeAlt};
 use dioxus_free_icons::Icon;
-use dioxus_i18n::prelude::*;
-use dioxus_i18n::unic_langid::{langid, LanguageIdentifier};
+use dioxus_i18n::unic_langid::langid;
 
-#[derive(Debug, PartialEq, Clone)] // 使结构体可以打印并且支持比较
-struct LanguageItem {
-    value: LanguageIdentifier,
-    label: String,
-}
+use crate::store::{use_language, LanguageItem};
 
 #[component]
 pub fn Language() -> Element {
-    let mut i18n = i18n();
-    let mut open = use_signal(|| false);
-    
-    let currentLanguage = i18n.language();
+    let (currentLanguage, set_language) = use_language();
+
+    let select_language = use_callback(move |lang: LanguageItem| {
+        tracing::debug!("Clicked! Event: {lang:?}\n",);
+        set_language(lang.value.to_string());
+    });
 
     let languages = vec![
         LanguageItem {
@@ -25,21 +22,10 @@ pub fn Language() -> Element {
             label: "English".to_string(),
         },
         LanguageItem {
-            value:  langid!("cn"),
+            value: langid!("cn"),
             label: "中 文".to_string(),
         },
     ];
-
-    let mut select_language = move |lang: &LanguageItem| {
-        tracing::debug!("Clicked! Event: {lang:?}\n",);
-        i18n.set_language(lang.value.clone());
-        open.set(false);
-    };
-
-
-
-    // 打印currentLanguage
-    tracing::debug!("currentLanguage: {}, {}", currentLanguage, open,);
 
     rsx!(
         div { class: clsx!("ui-dropdown", "ui-dropdown-center"),
@@ -60,12 +46,12 @@ pub fn Language() -> Element {
                             .iter()
                             .cloned()
                             .map(|lang| {
-                                let active = lang.value == currentLanguage;
+                                let active = lang.value.to_string() == currentLanguage.read().as_ref();
                                 rsx! {
                                     li {
                                         onclick: move |_| {
                                             if !active {
-                                                select_language(&lang)
+                                                select_language(lang.clone())
                                             }
                                         },
                                         a { class: clsx!((active, "ui-menu-active")), "{lang.label}" }

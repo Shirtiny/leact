@@ -6,9 +6,11 @@ mod hero;
 mod canvas;
 mod language;
 mod theme;
+mod file;
 
 
-pub use hero::Hero;
-pub use canvas::Canvas;
-pub use language::Language;
-pub use theme::Theme;
+pub use hero::*;
+pub use canvas::*;
+pub use language::*;
+pub use theme::*;
+pub use file::*;

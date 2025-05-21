@@ -9,7 +9,7 @@ init:
 	pnpm i
 	npx tailwindcss -i ./input.css -o ./assets/tailwind.css
 
-watch:
+w:
 	@echo "Watching... $(p)"
 	npx tailwindcss -i ./input.css -o ./assets/tailwind.css --watch	
 

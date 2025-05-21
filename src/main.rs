@@ -4,11 +4,11 @@ use app::App;
 // The dioxus prelude contains a ton of common items used in dioxus apps. It's a good idea to import wherever you
 // need dioxus
 use dioxus::prelude::*;
-use dioxus_i18n::{prelude::*, unic_langid::langid};
+
+use store::use_init_language;
 
 // use components::Hero;
 // use components::Welcome;
-
 
 mod app;
 /// Define a components module that contains all shared components for our app.
@@ -43,11 +43,7 @@ fn main() {
 /// Components should be annotated with `#[component]` to support props, better error messages, and autocomplete
 #[component]
 fn Main() -> Element {
-    use_init_i18n(|| {
-        I18nConfig::new(langid!("cn"))
-            .with_locale((langid!("cn"), include_str!("../i18n/cn.ftl")))
-            .with_locale((langid!("en"), include_str!("../i18n/en.ftl")))
-    });
+    use_init_language();
 
     // The `rsx!` macro lets us define HTML inside of rust. It expands to an Element with all of our HTML inside.
     rsx! {

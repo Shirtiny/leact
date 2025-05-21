@@ -1,3 +1,4 @@
 #navbar {
-
+  flex-shrink: 0;
+  z-index: var(--z-index-navbar);
 }

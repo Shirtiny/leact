@@ -1,9 +1,14 @@
 #app {
-  min-height: 100%;
+  position: relative;
+  height: 100%;
 
   :lang(en) {
   }
 
   :lang(zh) {
   }
+
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 }

@@ -1,14 +1,13 @@
 // The dioxus prelude contains a ton of common items used in dioxus apps. It's a good idea to import wherever you
 // need dioxus
 use dioxus::{logger::tracing, prelude::*};
-use dioxus_i18n::prelude::*;
 
 use crate::views::{Blog, Navbar, Welcome};
 
 // use components::Hero;
 // use components::Welcome;
 
-use crate::store::THEME;
+use crate::store::{use_language_provider, LanguageState, THEME};
 
 /// The Route enum is used to define the structure of internal routes in our app. All route enums need to derive
 /// the [`Routable`] trait, which provides the necessary methods for the router to work.
@@ -39,13 +38,11 @@ const APP_CSS: Asset = asset!("/assets/styling/app.scss");
 pub fn App() -> Element {
     tracing::debug!("App is rendering");
 
-    let i18n = i18n();
-
-    let currentLanguage = i18n.language();
+    let LanguageState { current_language, .. } = use_language_provider();
 
     // The `rsx!` macro lets us define HTML inside of rust. It expands to an Element with all of our HTML inside.
     rsx! {
         document::Link { rel: "stylesheet", href: APP_CSS }
-        div { id: "app", "data-theme": "{THEME}", lang: "{currentLanguage}", Router::<Route> {} }
+        div { id: "app", "data-theme": "{THEME}", lang: "{current_language}", Router::<Route> {} }
     }
 }
