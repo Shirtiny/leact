@@ -10,8 +10,12 @@
     --spacing: 0.25rem;
     --container-lg: 32rem;
     --container-xl: 36rem;
+    --container-2xl: 42rem;
+    --container-3xl: 48rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
@@ -1103,6 +1107,15 @@
   .my-16 {
     margin-block: calc(var(--spacing) * 16);
   }
+  .my-30 {
+    margin-block: calc(var(--spacing) * 30);
+  }
+  .my-40 {
+    margin-block: calc(var(--spacing) * 40);
+  }
+  .my-80 {
+    margin-block: calc(var(--spacing) * 80);
+  }
   .ui-label {
     display: inline-flex;
     align-items: center;
@@ -1317,11 +1330,35 @@
     width: var(--ui-size);
     height: var(--ui-size);
   }
+  .h-3 {
+    height: calc(var(--spacing) * 3);
+  }
+  .h-3\/5 {
+    height: calc(3/5 * 100%);
+  }
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
+  .h-4\/5 {
+    height: calc(4/5 * 100%);
+  }
   .h-5 {
     height: calc(var(--spacing) * 5);
   }
   .h-10 {
     height: calc(var(--spacing) * 10);
+  }
+  .h-full {
+    height: 100%;
+  }
+  .max-h-96 {
+    max-height: calc(var(--spacing) * 96);
+  }
+  .min-h-3 {
+    min-height: calc(var(--spacing) * 3);
+  }
+  .min-h-3\/5 {
+    min-height: calc(3/5 * 100%);
   }
   .w-5 {
     width: calc(var(--spacing) * 5);
@@ -1334,6 +1371,12 @@
   }
   .w-full {
     width: 100%;
+  }
+  .max-w-2xl {
+    max-width: var(--container-2xl);
+  }
+  .max-w-3xl {
+    max-width: var(--container-3xl);
   }
   .max-w-xl {
     max-width: var(--container-xl);
@@ -1438,6 +1481,14 @@
   .text-3xl {
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .text-base {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+  }
+  .text-base\/6 {
+    font-size: var(--text-base);
+    line-height: calc(var(--spacing) * 6);
   }
   .text-sm {
     font-size: var(--text-sm);

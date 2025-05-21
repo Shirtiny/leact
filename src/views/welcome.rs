@@ -11,16 +11,16 @@ const WELCOME_CSS: Asset = asset!("assets/styling/views/welcome.scss");
 pub fn Welcome() -> Element {
     rsx! {
         document::Link { rel: "stylesheet", href: WELCOME_CSS }
-        main { class: "page-welcome p-8 flex flex-col items-center justify-center",
+        main { class: "page-welcome h-full p-8 flex flex-col items-center justify-center",
             // video { src: asset!("/assets/eva-redit.mp4"), controls: true }
 
-            div { class: "w-full flex flex-col max-w-xl py-16 @container",
+            div { class: "w-full flex flex-col justify-between max-w-3xl min-h-3/5 @container",
                 div { class: "flex flex-col items-center",
                     h1 { class: "text-3xl",
                         {t!("welcome_to")}
                         span { class: "font-light p-2", "Leact" }
                     }
-                    p { class: "mt-6 text-sm/6", {t!("welcome_description")} }
+                    p { class: "mt-6 max-w-xl text-sm/6", {t!("welcome_description")} }
                 }
 
 
