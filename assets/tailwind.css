@@ -1100,9 +1100,6 @@
       }
     }
   }
-  .my-6 {
-    margin-block: calc(var(--spacing) * 6);
-  }
   .my-16 {
     margin-block: calc(var(--spacing) * 16);
   }
@@ -1326,9 +1323,6 @@
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
-  .min-h-full {
-    min-height: 100%;
-  }
   .w-5 {
     width: calc(var(--spacing) * 5);
   }
@@ -1341,17 +1335,11 @@
   .w-full {
     width: 100%;
   }
-  .max-w-lg {
-    max-width: var(--container-lg);
-  }
   .max-w-xl {
     max-width: var(--container-xl);
   }
   .flex-1 {
     flex: 1;
-  }
-  .flex-initial {
-    flex: 0 auto;
   }
   .flex-none {
     flex: none;
@@ -1436,31 +1424,8 @@
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
-  .py-6 {
-    padding-block: calc(var(--spacing) * 6);
-  }
   .py-16 {
     padding-block: calc(var(--spacing) * 16);
-  }
-  .ui-file-input-xl {
-    padding-inline-end: calc(0.25rem * 6);
-    --ui-size: calc(var(--size-field, 0.25rem) * 14);
-    font-size: 1.125rem;
-    line-height: 3rem;
-    &::file-selector-button {
-      font-size: 1.375rem;
-    }
-  }
-  .pt-6 {
-    padding-top: calc(var(--spacing) * 6);
-  }
-  .ui-file-input-lg {
-    --ui-size: calc(var(--size-field, 0.25rem) * 12);
-    font-size: 1.125rem;
-    line-height: 2.5rem;
-    &::file-selector-button {
-      font-size: 1.125rem;
-    }
   }
   .ui-file-input-md {
     --ui-size: calc(var(--size-field, 0.25rem) * 10);
@@ -1469,10 +1434,6 @@
     &::file-selector-button {
       font-size: 0.875rem;
     }
-  }
-  .text-2xl {
-    font-size: var(--text-2xl);
-    line-height: var(--tw-leading, var(--text-2xl--line-height));
   }
   .text-3xl {
     font-size: var(--text-3xl);
@@ -1485,10 +1446,6 @@
   .text-sm\/6 {
     font-size: var(--text-sm);
     line-height: calc(var(--spacing) * 6);
-  }
-  .text-sm\/7 {
-    font-size: var(--text-sm);
-    line-height: calc(var(--spacing) * 7);
   }
   .text-xl {
     font-size: var(--text-xl);
@@ -1571,11 +1528,6 @@
           translate: 0;
         }
       }
-    }
-  }
-  .\@sm\:w-auto {
-    @container (width >= 24rem) {
-      width: auto;
     }
   }
   .\@sm\:w-full {

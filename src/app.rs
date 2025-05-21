@@ -7,7 +7,7 @@ use crate::views::{Blog, Navbar, Welcome};
 // use components::Hero;
 // use components::Welcome;
 
-use crate::store::{use_language_provider, LanguageState, THEME};
+use crate::store::{use_language_provider, use_theme_provider, LanguageState, ThemeState};
 
 /// The Route enum is used to define the structure of internal routes in our app. All route enums need to derive
 /// the [`Routable`] trait, which provides the necessary methods for the router to work.
@@ -39,10 +39,16 @@ pub fn App() -> Element {
     tracing::debug!("App is rendering");
 
     let LanguageState { current_language, .. } = use_language_provider();
+    let ThemeState {current_theme} = use_theme_provider();
 
     // The `rsx!` macro lets us define HTML inside of rust. It expands to an Element with all of our HTML inside.
     rsx! {
         document::Link { rel: "stylesheet", href: APP_CSS }
-        div { id: "app", "data-theme": "{THEME}", lang: "{current_language}", Router::<Route> {} }
+        div {
+            id: "app",
+            "data-theme": "{current_theme}",
+            lang: "{current_language}",
+            Router::<Route> {}
+        }
     }
 }

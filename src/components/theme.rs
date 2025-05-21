@@ -1,22 +1,27 @@
 use dioxus::{logger::tracing, prelude::*};
 
-use crate::store::THEME;
+use crate::store::use_theme;
+
+// use crate::store::THEME;
 
 #[component]
 pub fn Theme() -> Element {
-    let toggle_theme = |_| {
-        let cur_theme = THEME.resolve();
-        tracing::debug!("toggle_theme {}", cur_theme);
+    
+    let (cur_theme, toggle_theme) = use_theme();
+    
+    // let toggle_theme = |_| {
+    //     let cur_theme = THEME.resolve();
+    //     tracing::debug!("toggle_theme {}", cur_theme);
 
-        let light: String = "cupcake".into();
-        let dark: String = "business".into();
+    //     let light: String = "cupcake".into();
+    //     let dark: String = "business".into();
 
-        *THEME.write() = if cur_theme.to_string() == dark {
-            light
-        } else {
-            dark
-        }
-    };
+    //     *THEME.write() = if cur_theme.to_string() == dark {
+    //         light
+    //     } else {
+    //         dark
+    //     }
+    // };
 
     rsx! {
         label {
@@ -27,7 +32,7 @@ pub fn Theme() -> Element {
                 value: "synthwave",
                 r#type: "checkbox",
                 class: "ui-theme-controller",
-                onchange: toggle_theme,
+                onchange: move |_| { toggle_theme(()) },
             }
             svg {
                 xmlns: "http://www.w3.org/2000/svg",
