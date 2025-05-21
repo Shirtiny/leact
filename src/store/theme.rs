@@ -6,7 +6,7 @@ use dioxus::{
 };
 use dioxus_sdk::storage::{use_storage, LocalStorage};
 
-use super::global::STORAGE_THEME;
+use super::global::{DEFAULT_THEME, STORAGE_THEME};
 
 #[derive(Clone, Copy)]
 pub struct ThemeState {
@@ -15,7 +15,7 @@ pub struct ThemeState {
 
 pub fn use_theme_provider() -> ThemeState {
     let current_theme =
-        use_storage::<LocalStorage, _>(STORAGE_THEME.into(), || "cupcake".to_string());
+        use_storage::<LocalStorage, _>(STORAGE_THEME.into(), || DEFAULT_THEME.to_string());
 
     let state = use_context_provider(|| ThemeState { current_theme });
 
