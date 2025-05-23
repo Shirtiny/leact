@@ -4,6 +4,8 @@ use dioxus::prelude::*;
 use dioxus_free_icons::icons::hi_solid_icons::{HiChevronDown, HiGlobeAlt};
 use dioxus_free_icons::Icon;
 use dioxus_i18n::unic_langid::langid;
+use web_sys::wasm_bindgen::prelude::Closure;
+use web_sys::wasm_bindgen::JsCast;
 
 use crate::store::{use_language, LanguageItem};
 
@@ -14,6 +16,33 @@ pub fn Language() -> Element {
     let select_language = use_callback(move |lang: LanguageItem| {
         tracing::debug!("Clicked! Event: {lang:?}\n",);
         set_language(lang.value.to_string());
+
+        #[cfg(feature = "web")]
+        {
+            let el = web_sys::window()
+                .unwrap()
+                .document()
+                .unwrap()
+                .active_element()
+                .unwrap()
+                .dyn_into::<web_sys::HtmlElement>()
+                .unwrap();
+
+            let callback = move || {
+               el.blur().unwrap();
+            };
+
+            let cb = Closure::wrap(Box::new(callback) as Box<dyn Fn()>);
+            web_sys::window()
+                .unwrap()
+                .set_timeout_with_callback_and_timeout_and_arguments_0(
+                    cb.as_ref().unchecked_ref(),
+                    200,
+                )
+                .unwrap();
+
+            cb.forget();
+        }
     });
 
     let languages = vec![
@@ -51,7 +80,7 @@ pub fn Language() -> Element {
                                     li {
                                         onclick: move |_| {
                                             if !active {
-                                                select_language(lang.clone())
+                                                select_language(lang.clone());
                                             }
                                         },
                                         a { class: clsx!((active, "ui-menu-active")), "{lang.label}" }

@@ -5,5 +5,12 @@
     "rust": "html"
   },
   "tailwindCSS.experimental.classRegex": ["class: \"(.*)\""],
-  "cSpell.words": ["icns", "langid", "onmounted", "stylesheet"]
+  "cSpell.words": [
+    "fieldset",
+    "icns",
+    "langid",
+    "onchange",
+    "onmounted",
+    "stylesheet"
+  ]
 }

@@ -2571,6 +2571,7 @@ dependencies = [
  "dioxus-free-icons",
  "dioxus-i18n",
  "dioxus-sdk",
+ "web-sys",
 ]
 
 [[package]]

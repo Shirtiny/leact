@@ -2,6 +2,7 @@
 // need dioxus
 use dioxus::{logger::tracing, prelude::*};
 
+use crate::utils;
 use crate::views::{Blog, Navbar, Welcome};
 
 // use components::Hero;
@@ -38,8 +39,10 @@ const APP_CSS: Asset = asset!("/assets/styling/app.scss");
 pub fn App() -> Element {
     tracing::debug!("App is rendering");
 
-    let LanguageState { current_language, .. } = use_language_provider();
-    let ThemeState {current_theme} = use_theme_provider();
+    let LanguageState {
+        current_language, ..
+    } = use_language_provider();
+    let ThemeState { current_theme } = use_theme_provider();
 
     // The `rsx!` macro lets us define HTML inside of rust. It expands to an Element with all of our HTML inside.
     rsx! {
@@ -48,6 +51,8 @@ pub fn App() -> Element {
             id: "app",
             "data-theme": "{current_theme}",
             lang: "{current_language}",
+            ondrop: utils::prevent,
+            ondragover: utils::prevent,
             Router::<Route> {}
         }
     }

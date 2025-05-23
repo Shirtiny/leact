@@ -2,7 +2,7 @@
 use dioxus::prelude::*;
 use dioxus_i18n::t;
 
-use crate::components::FileDrop;
+use crate::components::FileUploader;
 
 const WELCOME_CSS: Asset = asset!("assets/styling/views/welcome.scss");
 
@@ -24,7 +24,7 @@ pub fn Welcome() -> Element {
                 }
 
 
-                div { class: "flex justify-center my-16", FileDrop {} }
+                div { class: "flex justify-center my-16", FileUploader {} }
                 div { class: "flex justify-center",
                     ul { class: "ui-steps ui-steps-vertical w-auto @sm:ui-steps-horizontal @sm:w-full",
                         li { class: "ui-step ui-step-primary", {t!("upload")} }
